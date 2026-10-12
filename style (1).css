@@ -1,0 +1,75 @@
+:root{
+  --paper:#f3f6fb; --card:#ffffff; --ink:#14213d; --muted:#5b6785;
+  --line:#d5dcea; --accent:#ffd23f; --blue:#2f6fed; --danger:#c8372d;
+  --radius:10px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif; line-height:1.5;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px);
+  background-size:100% 32px; background-attachment:local;
+}
+.top{background:var(--ink); color:#fff; padding:28px 20px 24px; text-align:center}
+.top h1{margin:0; font-family:Georgia,serif; font-size:2.4rem; letter-spacing:.5px}
+.top h1::after{content:""; display:block; width:90px; height:8px; margin:8px auto 0; background:var(--accent); border-radius:2px}
+#today-date{margin:12px 0 16px; color:#c5cee6}
+.progress{max-width:420px; margin:auto}
+.bar{height:12px; background:#2a3a63; border-radius:6px; overflow:hidden}
+#bar-fill{display:block; height:100%; width:0; background:var(--accent); transition:width .4s}
+.progress small{color:#c5cee6}
+
+.tabs{position:sticky; top:0; z-index:5; display:flex; justify-content:center; gap:4px; background:var(--card); border-bottom:2px solid var(--ink); padding:6px}
+.tabs a{padding:8px 16px; color:var(--ink); text-decoration:none; font-weight:bold; border-radius:6px}
+.tabs a:hover,.tabs a:focus-visible{background:var(--accent); outline:none}
+
+main{max-width:820px; margin:auto; padding:16px}
+section{background:var(--card); border:2px solid var(--ink); border-radius:var(--radius); padding:20px; margin:24px 0; scroll-margin-top:60px; box-shadow:5px 5px 0 var(--ink)}
+h2{margin:0 0 14px; font-family:Georgia,serif}
+
+form{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px}
+input,select{font:inherit; padding:9px 10px; border:1.5px solid var(--line); border-radius:6px; background:#fff; color:var(--ink)}
+input[type=text],input:not([type]){flex:1; min-width:180px}
+input[type=color]{padding:2px; width:46px; height:42px}
+input:focus,select:focus,button:focus-visible{outline:3px solid var(--blue); outline-offset:1px}
+button{font:inherit; font-weight:bold; padding:9px 16px; border:2px solid var(--ink); background:var(--accent); color:var(--ink); border-radius:6px; cursor:pointer}
+button:hover{background:#ffe27a}
+button.ghost{background:transparent; border-color:var(--line); color:var(--muted); font-weight:normal; margin-top:12px}
+button.ghost:hover{border-color:var(--ink); color:var(--ink)}
+
+.list{list-style:none; margin:0; padding:0}
+.list li{display:flex; align-items:center; gap:10px; padding:10px 4px; border-bottom:1px solid var(--line)}
+.list li:last-child{border-bottom:0}
+.list .grow{flex:1}
+.list li.done .grow{text-decoration:line-through; color:var(--muted)}
+.tag{font-size:.8rem; padding:2px 10px; border-radius:20px; color:#fff; white-space:nowrap}
+.del{background:none; border:0; color:var(--muted); font-size:1.2rem; padding:2px 8px}
+.del:hover{background:none; color:var(--danger)}
+input[type=checkbox]{width:20px; height:20px; accent-color:var(--blue)}
+.empty{color:var(--muted); font-style:italic; border:0 !important}
+
+.scroll{overflow-x:auto}
+table{width:100%; border-collapse:collapse}
+th,td{border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top}
+thead th{background:var(--ink); color:#fff}
+td:first-child{font-weight:bold; width:70px}
+.slot{display:inline-flex; align-items:center; gap:6px; margin:2px 4px 2px 0; padding:3px 10px; border-radius:6px; color:#fff; font-size:.88rem}
+.slot button{background:none; border:0; color:#fff; padding:0 2px; cursor:pointer}
+
+.days{font-weight:bold; white-space:nowrap}
+.days.soon{color:var(--danger)}
+footer{text-align:center; color:var(--muted); padding:10px 0 30px; font-size:.9rem}
+
+@media (max-width:560px){
+  .top h1{font-size:1.9rem}
+  .tabs a{padding:8px 10px; font-size:.9rem}
+  section{padding:14px; box-shadow:3px 3px 0 var(--ink)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} #bar-fill{transition:none}}
+@media print{
+  body{background:#fff}
+  .top,.tabs,footer,form,button,#today,#subjects,#exams{display:none !important}
+  section{border:0; box-shadow:none}
+  .slot{color:#000 !important; border:1px solid #000; background:none !important}
+}

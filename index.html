@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Planner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>Study Planner</h1>
+  <p id="today-date"></p>
+  <div class="progress" aria-label="Today's progress">
+    <div class="bar"><span id="bar-fill"></span></div>
+    <small id="bar-text">No tasks yet</small>
+  </div>
+</header>
+
+<nav class="tabs">
+  <a href="#today">Today</a>
+  <a href="#timetable">Timetable</a>
+  <a href="#subjects">Subjects</a>
+  <a href="#exams">Exams</a>
+</nav>
+
+<main>
+  <section id="today">
+    <h2>Today's tasks</h2>
+    <form id="task-form">
+      <input id="task-text" placeholder="e.g. Finish chapter 3 notes" required>
+      <select id="task-subject" aria-label="Subject"></select>
+      <button>Add task</button>
+    </form>
+    <ul id="task-list" class="list"></ul>
+    <button id="clear-done" class="ghost">Remove completed</button>
+  </section>
+
+  <section id="timetable">
+    <h2>Weekly timetable</h2>
+    <form id="slot-form">
+      <select id="slot-day" aria-label="Day">
+        <option>Mon</option><option>Tue</option><option>Wed</option><option>Thu</option>
+        <option>Fri</option><option>Sat</option><option>Sun</option>
+      </select>
+      <input id="slot-start" type="time" required aria-label="Start time">
+      <input id="slot-end" type="time" required aria-label="End time">
+      <select id="slot-subject" aria-label="Subject"></select>
+      <button>Add slot</button>
+    </form>
+    <div class="scroll">
+      <table id="timetable-table">
+        <thead><tr><th>Day</th><th>Study slots</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <button id="print" class="ghost">Print timetable</button>
+  </section>
+
+  <section id="subjects">
+    <h2>Subjects</h2>
+    <form id="subject-form">
+      <input id="subject-name" placeholder="Subject name" required>
+      <input id="subject-color" type="color" value="#2f6fed" aria-label="Colour">
+      <button>Add subject</button>
+    </form>
+    <ul id="subject-list" class="list"></ul>
+  </section>
+
+  <section id="exams">
+    <h2>Exams and deadlines</h2>
+    <form id="exam-form">
+      <input id="exam-title" placeholder="e.g. Maths mid-term" required>
+      <input id="exam-date" type="date" required aria-label="Date">
+      <button>Add</button>
+    </form>
+    <ul id="exam-list" class="list"></ul>
+  </section>
+</main>
+
+<footer>Your data is saved in this browser only.</footer>
+<script src="script.js"></script>
+</body>
+</html>
